@@ -17,12 +17,16 @@ class App extends Component{
     }
 
     render(){
+        console.log(this.state.songs);
         return(
+            
             <div>
-                <DisplaySongs />
+                <DisplaySongs songs = {this.state.songs} />
+                
             </div>
         );
     }
+    
 }
 
 export default App;
