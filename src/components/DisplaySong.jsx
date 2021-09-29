@@ -1,9 +1,10 @@
 import React from "react";
+import Table from 'react-bootstrap/Table'
 
 const DisplaySongs = (props) => {
     return(
         <div>
-            <table>
+            <Table striped bordered hover size="sm" variant="dark">
                 <thead>
                     <tr>
                         <th>Artist</th>
@@ -26,7 +27,7 @@ const DisplaySongs = (props) => {
                         )
                     })}
                 </tbody>
-            </table>
+            </Table>
         </div>
     );
 }

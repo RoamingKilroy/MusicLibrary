@@ -1,6 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import DisplaySongs from "./DisplaySong";
 
 class App extends Component{
@@ -22,6 +23,7 @@ class App extends Component{
             
             <div>
                 <DisplaySongs songs = {this.state.songs} />
+                <input type="text" placeholder="Filter" onChange={this.filterList} />
                 
             </div>
         );
