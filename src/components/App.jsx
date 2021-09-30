@@ -2,6 +2,7 @@ import React from "react";
 import { Component } from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SearchBar from "./SearchBar/SearchBar";
 import DisplaySongs from "./DisplaySong";
 
 class App extends Component{
@@ -17,14 +18,32 @@ class App extends Component{
         .then(response => this.setState({songs:response.data}));
     }
 
+    filterSearch = (field,searchInput)=>{
+        console.log(field)
+        console.log(searchInput)
+        // eslint-disable-next-line array-callback-return
+        let results = this.state.songs.filter(function(el){
+            if(el[field]===searchInput){
+                return true
+            }
+        })
+        this.setState({
+            songs: results
+        })
+    }
+
+
+
     render(){
         console.log(this.state.songs);
         return(
             
             <div>
                 <DisplaySongs songs = {this.state.songs} />
-                <input type="text" placeholder="Filter" onChange={this.filterList} />
-                
+                <SearchBar 
+                filter={this.filterSearch}
+                songs={this.state.songs}
+                filterSongs={this.filterSongs}/>
             </div>
         );
     }
