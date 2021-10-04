@@ -3,7 +3,8 @@ import { Component } from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchBar from "./SearchBar/SearchBar";
-import DisplaySongs from "./DisplaySong";
+import DisplaySongs from "./DisplaySongs/DisplaySong";
+import NavBar from "./NavBar/navBar";
 
 class App extends Component{
     constructor(){
@@ -23,7 +24,7 @@ class App extends Component{
         console.log(searchInput)
         // eslint-disable-next-line array-callback-return
         let results = this.state.songs.filter(function(el){
-            if(el[field]===searchInput){
+            if(el[field].includes(searchInput)){
                 return true
             }
         })
@@ -39,15 +40,17 @@ class App extends Component{
         return(
             
             <div>
-                <DisplaySongs songs = {this.state.songs} />
+                <NavBar />
                 <SearchBar 
                 filter={this.filterSearch}
                 songs={this.state.songs}
                 filterSongs={this.filterSongs}/>
+                <DisplaySongs songs = {this.state.songs} />
             </div>
         );
     }
     
 }
+
 
 export default App;

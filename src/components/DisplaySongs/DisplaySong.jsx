@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table'
 
 const DisplaySongs = (props) => {
     return(
-        <div>
+        <div class="col-lg-8">
             <Table striped bordered hover size="sm" variant="dark">
                 <thead>
                     <tr>
