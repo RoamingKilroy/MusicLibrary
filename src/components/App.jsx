@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchBar from "./SearchBar/SearchBar";
 import DisplaySongs from "./DisplaySongs/DisplaySong";
 import NavBar from "./NavBar/navBar";
-import songCreator from "./SongCreator/songCreator";
+import SongCreator from "./SongCreator/songCreator";
 
 class App extends Component{
     constructor(){
@@ -33,8 +33,13 @@ class App extends Component{
             songs: results
         })
     }
-
-
+    
+    addNewSong(song){
+        this.song.push(song);
+        this.setState({
+            id: this.song.length -1
+        });
+    }
 
     render(){
         console.log(this.state.songs);
@@ -47,7 +52,7 @@ class App extends Component{
                 songs={this.state.songs}
                 filterSongs={this.filterSongs}/>
                 <DisplaySongs songs = {this.state.songs} />
-                <songCreator />
+                <SongCreator addNewSong={this.addNewSong.bind(this)}/>
             </div>
         );
     }
