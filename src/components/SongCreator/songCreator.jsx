@@ -1,4 +1,5 @@
 import React, {Component } from "react";
+import axios from 'axios';
 
 class songCreator extends Component {
     constructor(props) {
@@ -29,7 +30,8 @@ class songCreator extends Component {
             artist: this.state.artist,
             genre: this.state.genre,
             releaseDate: this.state.releaseDate,
-        }
+        };
+        axios.post("http://localhost3000/api/songs", song)
         this.propsaddNewSong(song);
         this.setState({
             title: '',
