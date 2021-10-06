@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchBar from "./SearchBar/SearchBar";
 import DisplaySongs from "./DisplaySongs/DisplaySong";
 import NavBar from "./NavBar/navBar";
+import songCreator from "./SongCreator/songCreator";
 
 class App extends Component{
     constructor(){
@@ -46,6 +47,7 @@ class App extends Component{
                 songs={this.state.songs}
                 filterSongs={this.filterSongs}/>
                 <DisplaySongs songs = {this.state.songs} />
+                <songCreator />
             </div>
         );
     }
