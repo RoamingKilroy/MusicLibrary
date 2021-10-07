@@ -52,7 +52,7 @@ class App extends Component{
                 songs={this.state.songs}
                 filterSongs={this.filterSongs}/>
                 <DisplaySongs songs = {this.state.songs} />
-                <SongCreator addNewSong={this.addNewSong.bind(this)}/>
+                <SongCreator addNewSong= {this.addNewSong} />
             </div>
         );
     }
